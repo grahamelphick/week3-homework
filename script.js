@@ -1,21 +1,22 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function askCriteria(){
+// Add event listener to generate button
+generateBtn.addEventListener("click", askCriteria);
+
+// User selection criteria
+function askCriteria() {
   var passwordLength = prompt("How many characters?");
-  var characterCapital = confirm("Do you want to use capital letters?")
+  var characterCapital = confirm("Do you want to use capital letters?");
   var characterNum = confirm("Do you want to use numbers?");
   var characterSpecial = confirm("Do you want to use special characters?");
 }
 
-
-
-
+// Password character options
 var lettersCapArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var lettersLowArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var specCharArray = ["!", "#", "$", "%", "&", "'", "*", "+", "-", "/", "<", ">", "?", "~"]
 var numArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
 
 // Write password to the #password input
 function writePassword() {
@@ -23,10 +24,28 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
-// Add event listener to generate button
+function generatePassword() {
+  // How many characters in the password
+  parseInt(passwordLength);
+  let generatedPassword = "";
+  let allSelectedCharactersArr = []
+  // Which arrays to use
+  if (characterCapital === true) {
+    allSelectedCharactersArr.concat(lettersCapArray)
+  }
 
-generateBtn.addEventListener("click", askCriteria);
+  if (characterNum === true) {
+    allSelectedCharactersArr.concat(numArray)
+  }
 
+  if (characterSpecial === true) {
+    allSelectedCharactersArr.concat(specCharArray)
+  }
+
+  for (i = 0; i <= passwordLength; i++) {
+    generatedPassword += allSelectedCharactersArr[Math.floor(Math.random() * allSelectedCharactersArr.length)]
+  }
+  return generatedPassword
+}
