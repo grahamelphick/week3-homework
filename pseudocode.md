@@ -24,11 +24,13 @@ GENERATE:
        
         Check answers to each question- Boolean or number
 
-        Loop- based on the number of characters desired- loop ends when character number is reached
-
         Choose arrays based on True/false answers
 
         Minimum of 1 character from each TRUE array
+
+        Loop- based on the number of characters desired- loop ends when character number is reached (change answer from string to number)
+
+        
 
 DISPLAY:
     Alert
